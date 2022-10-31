@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns='http://www.ehcache.org/v3'
+    xmlns:jsr107='http://www.ehcache.org/v3/jsr107'
+    xsi:schemaLocation="
+                        http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.5.xsd
+                        http://www.ehcache.org/v3/jsr107 http://www.ehcache.org/schema/ehcache-107-ext-3.0.xsd">
+
+    <service>
+        <jsr107:defaults enable-management="true" enable-statistics="true"/>
+    </service>
+
+    <!--  Persistent cache directory -->
+    <persistence directory="spring-boot-ehcache/cache" />
+
+    <!-- Default cache template -->
+    <cache-template name="default">
+<!--        <expiry>-->
+<!--            <ttl unit="seconds">60</ttl>-->
+<!--        </expiry>-->
+        <listeners>
+            <listener>
+                <class>bg.musala.test.yrm.component.CacheLogger</class>
+                <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+                <event-ordering-mode>ORDERED</event-ordering-mode>
+                <events-to-fire-on>CREATED</events-to-fire-on>
+                <events-to-fire-on>REMOVED</events-to-fire-on>
+                <events-to-fire-on>EXPIRED</events-to-fire-on>
+                <events-to-fire-on>EVICTED</events-to-fire-on>
+                <events-to-fire-on>UPDATED</events-to-fire-on>
+            </listener>
+        </listeners>
+        <resources>
+            <heap>1000</heap>
+            <offheap unit="MB">10</offheap>
+            <disk persistent="true" unit="MB">20</disk>
+        </resources>
+        <heap-store-settings>
+            <max-object-graph-size>2000</max-object-graph-size>
+            <max-object-size unit="kB">5</max-object-size>
+        </heap-store-settings>
+    </cache-template>
+
+    <cache alias="gateway" uses-template="default">
+    </cache>
+    <cache alias="device" uses-template="default">
+    </cache>
+</config>

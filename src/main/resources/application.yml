@@ -1,0 +1,39 @@
+app:
+  version: 1.0-SNAPSHOT
+
+server:
+  servlet:
+    context-path: /yrm/v1.0
+  port: 7001
+
+spring:
+  aplication:
+    name: Gateway
+
+  datasource: # DB connection settings
+    url: jdbc:postgresql://localhost:5432/GATEWEY
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+    hikari: # JDBC DataSource implementation, lightweight and better performing
+      minimumIdle: 5 # El número mínimo de conexiones desocupadas mantenidas
+      maximumPoolSize: 20 # Máximo número de conexiones reales (pool sizing)
+      idleTimeout: 30000 # Máxima cantidad de tiempo que una conexión es admitida como desocupada
+      maxLifetime: 2000000 # Máxima duración de una vida de una conexión
+      connectionTimeout: 30000 # Máximo número de milisegundos que un cliente esperará una conexión
+      poolName: HikariSRNT
+
+  jpa: # JPA settings
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    open-in-view: false
+
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+    ehcache:
+      config: ehcache.xml
+

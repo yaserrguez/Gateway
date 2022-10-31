@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "8c94b461-416e-4783-b6e2-7f723fcc1a61",
+		"name": "Gatewey",
+		"description": "Servicios Rest de Gatewey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find All Gatewey",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:7001/yrm/v1.0/gateweys?",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "-serialNumber",
+							"description": "Atributo por el cual se ordenará el resultado, si se antepone - se ordenará descendentemente y si se antepone + ascendentemente, si no se antepone nada se ordenará ascendentemente por defecto.",
+							"disabled": true
+						},
+						{
+							"key": "pageNumber",
+							"value": "0",
+							"description": "Numero de página del paginado, la primera página es 0.",
+							"disabled": true
+						},
+						{
+							"key": "itemsPerPage",
+							"value": "5",
+							"description": "Cantidad de elementos por página.",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "test",
+							"description": "Filtro para recuperar todas las entidades con 'name' igual al especificado.",
+							"disabled": true
+						},
+						{
+							"key": "serialNumber",
+							"value": "1234555895",
+							"description": "Filtro para recuperar todas las entidades con 'serialNumber' igual al especificado.",
+							"disabled": true
+						},
+						{
+							"key": "ipv4Address",
+							"value": "127.0.0.5",
+							"description": "Filtro para recuperar todas las entidades con 'ipv4Address' igual al especificado.",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Petición para recuperar todas las entidades **Gatewey**.\r\n\r\n**order**: Atributo por el cual se ordenará el resultado, si se antepone - se ordenará descendentemente y si se antepone + ascendentemente, si no se antepone nada se ordenará ascendentemente por defecto.\r\n\r\n**pageNumber**: Numero de página del paginado, la primera página es 0.\r\n\r\n**itemsPerPage**: Cantidad de elementos por página.\r\n\r\n**name**: Filtro para recuperar todas las entidades con 'name' igual al especificado.\r\n\r\n**serialNumber**: Filtro para recuperar todas las entidades con 'serialNumber' igual al especificado.\r\n\r\n**ipv4Address**: Filtro para recuperar todas las entidades con 'ipv4Address' igual al especificado.\r\n\r\nEl paginado se especifica con 'pageNumber' e 'itemsPerPage', si se especifica uno y otro no este tomara valor por defecto (pageNumber = 0) (itemsPerPage = 5).\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Finf Gatewey By Id ",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/gateweys/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys",
+						"13"
+					]
+				},
+				"description": "Petición para recuperar la entidad **Gatewey** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Gatewey",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serialNumber\": \"1234555890\",\n    \"name\": \"Gatewey 1\",\n    \"ipv4Address\": \"127.0.0.1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/gateweys",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys"
+					]
+				},
+				"description": "Petición para crear una entidad **Gatewey**."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Gatewey",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 15,\n    \"version\": 0,\n    \"serialNumber\": \"1234555890\",\n    \"name\": \"my localhost\",\n    \"ipv4Address\": \"127.0.0.1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/gateweys/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys",
+						"15"
+					]
+				},
+				"description": "Petición para actualizar una entidad **Gatewey** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Gatewey",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/gateweys/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys",
+						"1"
+					]
+				},
+				"description": "Petición para eliminar una entidad **Gatewey** con el 'id' especificado, eliminando además los **Device** relacionados con este."
+			},
+			"response": []
+		},
+		{
+			"name": "Find Gatewey Devices",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/gateweys/15/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys",
+						"15",
+						"devices"
+					]
+				},
+				"description": "Petición para recuperar los **Device** relacionados con el **Gatewey** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Add Gatewey Device",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vendor\": \"Hp Laptop\",\n    \"status\": true,\n    \"uid\": 1234567890\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/gateweys/15/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys",
+						"15",
+						"devices"
+					]
+				},
+				"description": "Petición para relacionar (crear) un **Device** con el **Gatewey** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Add gatewey several Devices",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n    \t\"vendor\": \"Lg Movile\",\n    \t\"status\": true,\n    \t\"uid\": 1234567890\n\t},\n\t{\n    \t\"vendor\": \"Asus PC\",\n    \t\"status\": true,\n    \t\"uid\": 1234567891\n\t}\n]"
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/gateweys/1/devices/several",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"gateweys",
+						"1",
+						"devices",
+						"several"
+					]
+				},
+				"description": "Petición para relacionar (crear) varios **Device** con el **Gatewe**y con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Devices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/devices?order=-uid&pageNumber=0&itemsPerPage=5&uid=1234567893&vendor=Lg Movile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"devices"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "-uid",
+							"description": "Atributo por el cual se ordenará el resultado, si se antepone - se ordenará descendentemente y si se antepone + ascendentemente, si no se antepone nada se ordenará ascendentemente por defecto."
+						},
+						{
+							"key": "pageNumber",
+							"value": "0",
+							"description": "Numero de página del paginado, la primera página es 0."
+						},
+						{
+							"key": "itemsPerPage",
+							"value": "5",
+							"description": "Cantidad de elementos por página."
+						},
+						{
+							"key": "uid",
+							"value": "1234567893",
+							"description": "Filtro para recuperar todas las entidades con 'uid' igual al especificado."
+						},
+						{
+							"key": "vendor",
+							"value": "Lg Movile",
+							"description": "Filtro para recuperar todas las entidades con 'vendor' igual al especificado."
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Petición para recuperar todas las entidades **Device**.\r\n\r\n**order**: Atributo por el cual se ordenará el resultado, si se antepone - se ordenará descendentemente y si se antepone + ascendentemente, si no se antepone nada se ordenará ascendentemente por defecto.\r\n\r\n**pageNumber**: Numero de página del paginado, la primera página es 0.\r\n\r\n**itemsPerPage**: Cantidad de elementos por página.\r\n\r\n**uid**: Filtro para recuperar todas las entidades con 'uid' igual al especificado.\r\n\r\n**vendor**: Filtro para recuperar todas las entidades con 'vendor' igual al especificado.\r\n\r\nEl paginado se especifica con 'pageNumber' e 'itemsPerPage', si se especifica uno y otro no este tomara valor por defecto (pageNumber = 0) (itemsPerPage = 5)."
+			},
+			"response": []
+		},
+		{
+			"name": "Find Device By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/devices/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"devices",
+						"15"
+					]
+				},
+				"description": "Petición para recuperar la entidad **Device** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Set online Device",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/devices/15/online",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"devices",
+						"15",
+						"online"
+					]
+				},
+				"description": "Petición para establecer el estado ('status') 'online' al **Device** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Set offline Device",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/devices/15/offline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"devices",
+						"15",
+						"offline"
+					]
+				},
+				"description": "Petición para establecer el estado ('status') 'offline' al **Device** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 15,\n    \"version\": 19,\n    \"vendor\": \"Hier Laptop\",\n    \"created\": \"2021-10-01T02:38:37.156+00:00\",\n    \"status\": false,\n    \"uid\": 1234567890,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:7001/yrm/v1.0/devices/15\"\n        },\n        \"gatewey\": {\n            \"href\": \"http://localhost:7001/yrm/v1.0/gateweys/15\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/devices/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"devices",
+						"15"
+					]
+				},
+				"description": "Petición para actualizar una entidad **Device** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Device",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/devices/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"devices",
+						"15"
+					]
+				},
+				"description": "Petición para eliminar una entidad **Device** con el 'id' especificado."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cache",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:7001/yrm/v1.0/caches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7001",
+					"path": [
+						"yrm",
+						"v1.0",
+						"caches"
+					]
+				},
+				"description": "Petición para eliminar (borrar) todas las **cache** de los servicios."
+			},
+			"response": []
+		}
+	]
+}
